@@ -1,0 +1,4 @@
+
+> physio-therapy@0.0.0 lint
+> oxlint --format=unix src
+

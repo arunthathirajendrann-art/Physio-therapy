@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist+Mono:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-bg-deep: var(--bg-deep);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-elevated);
+  
+  --color-border-subtle: var(--border-subtle);
+  --color-border-bright: var(--border-bright);
+  
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  
+  --color-accent-indigo: #6366F1;
+  --color-accent-emerald: #10B981;
+  --color-accent-rose: #F43F5E;
+  --color-accent-amber: #F59E0B;
+  --color-accent-sky: #0EA5E9;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Geist Mono', JetBrains Mono, monospace;
+
+  --shadow-glass-indigo: 0 0 20px rgba(99, 102, 241, 0.12);
+  --shadow-glass-emerald: 0 0 20px rgba(16, 185, 129, 0.12);
+  --shadow-glass-rose: 0 0 20px rgba(244, 63, 94, 0.12);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+
+  --animate-spin-slow: spin 8s linear infinite;
+}
+
+:root {
+  /* Light Theme Variables */
+  --bg-deep: #F8F9FA;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F1F3F5;
+  --border-subtle: #E9ECEF;
+  --border-bright: #CED4DA;
+  --text-primary: #1A1A1E;
+  --text-secondary: #495057;
+  --text-muted: #868E96;
+}
+
+.dark {
+  /* Dark Theme Variables */
+  --bg-deep: #09090B;
+  --bg-surface: #18181B;
+  --bg-elevated: #27272A;
+  --border-subtle: #222226;
+  --border-bright: #3F3F46;
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-deep text-text-primary font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Glassmorphism custom classes */
+.glass-panel {
+  @apply bg-bg-surface/75 border border-border-subtle backdrop-blur-md;
+}
+
+.glass-panel-interactive {
+  @apply bg-bg-surface/75 border border-border-subtle backdrop-blur-md hover:border-border-bright transition-all duration-200;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-bright);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
